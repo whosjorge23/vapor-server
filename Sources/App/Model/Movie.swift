@@ -12,4 +12,6 @@ struct Movie: Content {
     let title: String
     let year: Int
     let category: String
+    let trailerUrl: String?
+    let imageCoverUrl: String?
 }
