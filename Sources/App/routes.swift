@@ -9,12 +9,23 @@ func routes(_ app: Application) throws {
         "Hello, world!"
     }
     
-    app.get("json") { req -> Response in
-        let json = ["name": "John", "lastname": "Doe", "email": "johndoe@email.com", "hobbies" : ["Rugby", "TV", "NFL"]]
-            let data = try JSONSerialization.data(withJSONObject: json)
-            let body = Response.Body(data: data)
-            let response = Response(status: .ok, headers: HTTPHeaders([("Content-Type", "application/json")]), body: body)
-            return response
+    app.get("users") { req -> [User] in
+        let users = [
+            User(name: "John", lastName: "Doe", age: 21, work: "iOS Developer", hobbies: [
+                User.Hobby(name: "NFL"),
+                User.Hobby(name: "TV Series")
+            ]),
+            User(name: "Jane", lastName: "Doe", age: 21, work: "Flutter Developer", hobbies: [
+                User.Hobby(name: "Cooking"),
+                User.Hobby(name: "TV Series")
+             ]),
+            User(name: "Jessy", lastName: "Doe", age: 15, work: "Student", hobbies: [
+                User.Hobby(name: "Reading"),
+                User.Hobby(name: "TV Movies")
+            ]),
+        ]
+            
+            return users
         }
     
     app.get("calendar") { req -> EventLoopFuture<CalendarInfo> in
