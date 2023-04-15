@@ -62,6 +62,10 @@ func routes(_ app: Application) throws {
                 }
             return movies
         }
+    
+    let wordOfTheDayController = WordOfTheDayController()
+
+        app.get("wotd", use: wordOfTheDayController.getRandomWord)
 }
 
 
