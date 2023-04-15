@@ -30,6 +30,7 @@ struct User: Content {
     
     struct Hobby: Content {
         let name: String
+        let type: String
     }
     
     func encode(to encoder: Encoder) throws {

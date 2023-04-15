@@ -12,16 +12,16 @@ func routes(_ app: Application) throws {
     app.get("users") { req -> [User] in
         let users = [
             User(name: "John", lastName: "Doe", age: 21, work: "iOS Developer", hobbies: [
-                User.Hobby(name: "NFL"),
-                User.Hobby(name: "TV Series")
+                User.Hobby(name: "NFL", type: "Sport"),
+                User.Hobby(name: "TV Series", type: "Chilling")
             ]),
             User(name: "Jane", lastName: "Doe", age: 21, work: "Flutter Developer", hobbies: [
-                User.Hobby(name: "Cooking"),
-                User.Hobby(name: "TV Series")
+                User.Hobby(name: "Cooking", type: "Self-Improvement"),
+                User.Hobby(name: "TV Series", type: "Chilling")
              ]),
             User(name: "Jessy", lastName: "Doe", age: 15, work: "Student", hobbies: [
-                User.Hobby(name: "Reading"),
-                User.Hobby(name: "TV Movies")
+                User.Hobby(name: "Reading", type: "Self-Improvement"),
+                User.Hobby(name: "TV Movies", type: "Chilling")
             ]),
         ]
             
