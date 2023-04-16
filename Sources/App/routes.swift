@@ -10,13 +10,17 @@ func routes(_ app: Application) throws {
     }
     
     let userController = UserController()
-    app.get("users", use: userController.getUsers)
+    app.get("api", "users", use: userController.getUsers)
+    
+    let heroController = HeroController()
+    app.get("api", "heroes", use: heroController.getHeroes)
     
     let movieController = MovieController()
-    app.get("movies", use: movieController.getMovies)
+    app.get("api", "movies", use: movieController.getMovies)
     
     let wordOfTheDayController = WordOfTheDayController()
-    app.get("wotd", use: wordOfTheDayController.getRandomWord)
+    app.get("api", "wotd", use: wordOfTheDayController.getRandomWord)
+    app.get("api", "wotd-list", use: wordOfTheDayController.getWords)
     
     let calendarController = CalendarController()
     app.get("calendar", use: calendarController.getCalendar)
