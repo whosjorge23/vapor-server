@@ -15,6 +15,9 @@ func routes(_ app: Application) throws {
     let heroController = HeroController()
     app.get("api", "heroes", use: heroController.getHeroes)
     
+    let avengersController = AvengerController()
+    app.get("api", "avengers", use: avengersController.getAvengers)
+    
     let movieController = MovieController()
     app.get("api", "movies", use: movieController.getMovies)
     
